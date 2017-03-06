@@ -12,3 +12,16 @@ function debounce(func, wait = 20, immediate = true) {
     if (callNow) func.apply(context, args);
   };
 };
+
+const sliderImages = document.querySelectorAll('.slide-in');
+
+function checkSlide(event){
+  sliderImages.forEach(slideImage => {
+    // Determine where to slide in
+    const slideInAt = (window.scrollY + window.innerHeight) - slideImage.height / 2;
+    // Determine image bottom
+    const imageBottom = sliderImage.offsetTop + sliderImage.height;
+  });
+}
+
+window.addEventListener('scroll', debounce(checkSlide));
